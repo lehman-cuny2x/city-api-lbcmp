@@ -66,3 +66,15 @@ form button {
 form button:hover {
     background-color: rgba(113, 144, 166, 0.75);
 }
+
+hr {
+    width:95%;
+    margin:10px 0;
+}
+
+#search-title {
+    display:flex;
+    justify-content: flex-start;
+    padding:10px 0;
+    width:35%;
+}

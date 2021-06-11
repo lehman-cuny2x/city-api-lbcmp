@@ -7,15 +7,22 @@ class Home extends Component {
 
         this.state = {
             cityName: "",
+            displayCity: "",
+            citySubmitted:false
         }
+
+        this.handleCityChange = this.handleCityChange.bind(this);
+        this.formSubmitHandler = this.formSubmitHandler.bind(this);
     }
 
-    handleZipcodeChange(event) {
-
+    handleCityChange(event) {
+        this.setState({cityName: event.target.value});
     }
     
     formSubmitHandler(event) {
-
+        event.preventDefault();
+        this.setState({displayCity: this.state.cityName});
+        this.setState({citySubmitted: true});
     }
 
     render() {
@@ -30,14 +37,17 @@ class Home extends Component {
                     <form onSubmit={this.formSubmitHandler}>
                         <label>Enter a City: </label>
                         <input placeholder="Try New York"
-                            value={this.state.zipcode}
-                            onChange={this.handleZipcodeChange}
-                            name="zipcode"
-                            maxLength="5"
-                            minLength="5">
+                            value={this.state.cityName}
+                            onChange={this.handleCityChange}
+                            name="city">
                         </input>
                         <button type="submit">Submit</button>
                     </form>
+
+                    <hr />
+
+                    <div id="search-title"><h2>Cities in: {this.state.displayCity}</h2></div>
+
                 </section>
             </div>
         );
