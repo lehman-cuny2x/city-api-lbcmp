@@ -70,8 +70,6 @@ class Home extends Component {
 
                     <hr />
 
-                    <div id="search-title"><h2>Cities in: {this.state.displayCity}</h2></div>
-
                     {dataArr}
                 </section>
             </div>
