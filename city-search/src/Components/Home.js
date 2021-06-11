@@ -28,7 +28,7 @@ class Home extends Component {
                 <section id="section-wrapper">
                     
                     <form onSubmit={this.formSubmitHandler}>
-                        <label>Enter a Zipcode: </label>
+                        <label>Enter a City: </label>
                         <input placeholder="Try New York"
                             value={this.state.zipcode}
                             onChange={this.handleZipcodeChange}

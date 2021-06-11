@@ -19,3 +19,50 @@ body {
     width:100%;
     padding:20px 0;
 }
+
+#section-wrapper {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width:90%;
+    margin:20px;
+    padding:20px;
+    border:2px solid #4D5F68;
+    border-radius: 5px;
+
+    background-color: #E8E8E8;
+}
+
+form {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin:20px;
+}
+
+form label, input, button {
+    margin:15px;
+    width:300px;
+}
+
+form label {
+    font-size: 1.5rem;
+}
+
+form input {
+    font-size: 1rem; 
+}
+
+form button {
+    font-size: 1rem; 
+    padding:10px 0;
+    background-color: rgb(113, 144, 166);
+    border-radius: 10px;
+}
+
+form button:hover {
+    background-color: rgba(113, 144, 166, 0.75);
+}
