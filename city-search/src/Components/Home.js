@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../Home.css'
+import Card from './Card';
 
 class Home extends Component {
     constructor() {
@@ -8,7 +9,9 @@ class Home extends Component {
         this.state = {
             cityName: "",
             displayCity: "",
-            citySubmitted:false
+            citySubmitted:false,
+            data:[],
+            found:false
         }
 
         this.handleCityChange = this.handleCityChange.bind(this);
@@ -21,15 +24,36 @@ class Home extends Component {
     
     formSubmitHandler(event) {
         event.preventDefault();
-        this.setState({displayCity: this.state.cityName});
-        this.setState({citySubmitted: true});
+        let city = this.state.cityName.toUpperCase();
+        this.setState({displayCity: city});
+        this.setState({citySubmitted: true, found:false});
+    }
+
+    async componentDidUpdate() {
+        if (this.state.citySubmitted) {
+            this.setState({citySubmitted: false});
+            let city = this.state.cityName.toUpperCase();
+            var url = "http://ctp-zip-api.herokuapp.com/city/" + city;
+            const response = await fetch(url);
+            const data = await response.json();
+            this.setState({data:data, found:true});
+            console.log(data);
+        }
     }
 
     render() {
+
+        let dataArr = [];
+        if(this.state.found) {
+            dataArr = this.state.data.map((i, index) => <Card zip={i.toString(index)} />);
+        } else {
+            dataArr = <h3>Not Found</h3>;
+        }
+
         return(
             <div id="page-wrapper">
                 <div id="title-div">
-                    <h1>Welcome to the Zipcode Search App</h1>
+                    <h1>Welcome to the City Search App</h1>
                 </div>
 
                 <section id="section-wrapper">
@@ -48,6 +72,7 @@ class Home extends Component {
 
                     <div id="search-title"><h2>Cities in: {this.state.displayCity}</h2></div>
 
+                    {dataArr}
                 </section>
             </div>
         );

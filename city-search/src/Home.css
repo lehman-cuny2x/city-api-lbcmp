@@ -74,7 +74,16 @@ hr {
 
 #search-title {
     display:flex;
-    justify-content: flex-start;
+    justify-content: center;
     padding:10px 0;
     width:35%;
+}
+
+.zip-info {
+    font-size: 1.3rem;
+    width:70%;
+    border:1px solid #4D5F68;
+    padding:10px;
+    border-radius:5px;
+    margin:10px;
 }
