@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
+import '../Home.css'
 
 class Home extends Component {
     constructor() {
         super();
+
+        this.state = {
+            cityName: "",
+        }
     }
 
     render() {
         return(
-            <div>
-                Welcome to the City Search App
+            <div id="page-wrapper">
+                <div id="title-div">
+                    <h1>Welcome to the Zipcode Search App</h1>
+                </div>
             </div>
         );
     }
